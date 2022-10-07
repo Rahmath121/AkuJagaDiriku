@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+
+onready var BGM = $bgm
+onready var Sfx = $sfx
+
+var mute = false
+var themeSong = load(\"res://Asset/audio/main menu theme song fix (1).ogg\")
+var ThemeMusic = false
+var click = load(\"res://Asset/audio/game-click.mp3\")
+func _ready():
+	pass
+
+func themeMusic():
+	if ThemeMusic == false:
+		BGM.stream = themeSong
+		BGM.play()
+		ThemeMusic = true
+
+func sfxSound(path):
+	Sfx.stream = click
+	Sfx.play()
+	yield(get_tree().create_timer(0.15),\"timeout\")
+	Sfx.stop()
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(path)
+	
+"
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("bgm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -10.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "keluar"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bgm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.0, -10.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "masuk"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bgm:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -10.0, 5.0 ]
+}
+
+[node name="musicController" type="Node"]
+script = SubResource( 1 )
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/keluar = SubResource( 3 )
+anims/masuk = SubResource( 4 )

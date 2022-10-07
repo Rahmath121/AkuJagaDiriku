@@ -1,0 +1,346 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Asset/Home/Latar Game Basic.png" type="Texture" id=1]
+[ext_resource path="res://Asset/Quicksand/static/Quicksand-Light.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Asset/Body Puzzle/girls/Perempuan TK.png" type="Texture" id=3]
+[ext_resource path="res://Asset/BoysGirls/makingWord/N Button.png" type="Texture" id=4]
+[ext_resource path="res://Asset/Home/Bintang Putih.png" type="Texture" id=5]
+[ext_resource path="res://Asset/BoysGirls/makingWord/V Button.png" type="Texture" id=6]
+[ext_resource path="res://Scene/GAme/BoysGirls/MakingWord/makingWord1.gd" type="Script" id=7]
+[ext_resource path="res://Asset/BoysGirls/makingWord/G Button.png" type="Texture" id=8]
+[ext_resource path="res://Asset/BoysGirls/makingWord/A Button.png" type="Texture" id=9]
+[ext_resource path="res://Asset/BoysGirls/makingWord/I Button.png" type="Texture" id=10]
+[ext_resource path="res://Asset/BoysGirls/makingWord/Submit Button.png" type="Texture" id=11]
+[ext_resource path="res://Scene/GAme/BoysGirls/MakingWord/wordd.gd" type="Script" id=12]
+[ext_resource path="res://Scene/Main/GUI.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scene/GAme/BoysGirls/BoysGirls.tscn" type="PackedScene" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.027451 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.054902, 0.243137, 0.811765, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=4]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.054902, 0.243137, 0.811765, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Curve" id=5]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, -307.524 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="makingWord1" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -361.0
+margin_top = -290.0
+margin_right = 361.0
+margin_bottom = -252.0
+custom_fonts/font = SubResource( 1 )
+text = "Susunlah Kata Dibawah ini Menjadi Kata yang Benar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -150.0
+margin_right = 150.0
+margin_bottom = 150.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Control"]
+margin_left = 340.0
+margin_top = 544.0
+margin_right = 960.0
+margin_bottom = 644.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="word" type="GridContainer" parent="Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -310.0
+margin_top = -50.0
+margin_right = 330.0
+margin_bottom = 50.0
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="word1" type="TextureButton" parent="Control/Panel/word"]
+margin_right = 103.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 51.5, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 12 )
+
+[node name="word2" type="TextureButton" parent="Control/Panel/word"]
+margin_left = 107.0
+margin_right = 210.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 51.5, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 9 )
+expand = true
+script = ExtResource( 12 )
+word = "a"
+
+[node name="word3" type="TextureButton" parent="Control/Panel/word"]
+margin_left = 214.0
+margin_right = 317.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 51.5, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 5
+texture_normal = ExtResource( 8 )
+expand = true
+script = ExtResource( 12 )
+word = "g"
+
+[node name="word4" type="TextureButton" parent="Control/Panel/word"]
+margin_left = 321.0
+margin_right = 424.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 51.5, 50 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 10 )
+expand = true
+script = ExtResource( 12 )
+word = "i"
+
+[node name="word5" type="TextureButton" parent="Control/Panel/word"]
+margin_left = 428.0
+margin_right = 531.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 51.5, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 4 )
+expand = true
+script = ExtResource( 12 )
+word = "n"
+
+[node name="word6" type="TextureButton" parent="Control/Panel/word"]
+margin_left = 535.0
+margin_right = 638.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 51.5, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 9 )
+expand = true
+script = ExtResource( 12 )
+word = "a"
+
+[node name="Slot1" type="Panel" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -297.0
+margin_top = 189.0
+margin_right = -200.0
+margin_bottom = 284.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Slot2" type="Panel" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.0
+margin_top = 188.0
+margin_right = -92.0
+margin_bottom = 283.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Slot3" type="Panel" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = 187.0
+margin_right = 14.0
+margin_bottom = 282.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Slot4" type="Panel" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 25.0
+margin_top = 187.0
+margin_right = 122.0
+margin_bottom = 282.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Slot5" type="Panel" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 130.0
+margin_top = 187.0
+margin_right = 227.0
+margin_bottom = 282.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Slot6" type="Panel" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 237.0
+margin_top = 187.0
+margin_right = 334.0
+margin_bottom = 282.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="submit" type="TextureButton" parent="Control"]
+margin_left = 1020.0
+margin_top = 541.0
+margin_right = 1153.0
+margin_bottom = 641.0
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 649, 333 )
+amount = 6
+lifetime = 5.0
+texture = ExtResource( 5 )
+emission_shape = 2
+emission_rect_extents = Vector2( 400, 400 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+angle_curve = SubResource( 5 )
+scale_amount = 0.1
+color = Color( 1, 1, 1, 0.396078 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 13 )]
+backScene = ExtResource( 14 )
+
+[connection signal="pressed" from="Control/Panel/word/word1" to="." method="_on_word1_pressed"]
+[connection signal="pressed" from="Control/Panel/word/word2" to="." method="_on_word2_pressed"]
+[connection signal="pressed" from="Control/Panel/word/word3" to="." method="_on_word3_pressed"]
+[connection signal="pressed" from="Control/Panel/word/word4" to="." method="_on_word4_pressed"]
+[connection signal="pressed" from="Control/Panel/word/word5" to="." method="_on_word5_pressed"]
+[connection signal="pressed" from="Control/Panel/word/word6" to="." method="_on_word6_pressed"]
+[connection signal="pressed" from="Control/submit" to="." method="_on_submit_pressed"]

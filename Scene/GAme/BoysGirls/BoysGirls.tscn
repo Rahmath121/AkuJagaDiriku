@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Asset/Home/Latar Game Basic.png" type="Texture" id=1]
+[ext_resource path="res://Asset/BoysGirls/Aku Jaga Diriku-2.png" type="Texture" id=2]
+[ext_resource path="res://Asset/BoysGirls/Making Words Button.png" type="Texture" id=3]
+[ext_resource path="res://Asset/BoysGirls/Let's Shower Button.png" type="Texture" id=4]
+[ext_resource path="res://Scene/GAme/BoysGirls/BoysGirls.gd" type="Script" id=5]
+[ext_resource path="res://Scene/Main/GUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scene/Main/gameMenu.tscn" type="PackedScene" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+draw_center = false
+
+[node name="BoysGirls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -150.0
+margin_right = 300.0
+margin_bottom = 150.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="Panel"]
+margin_left = -76.0
+margin_top = 22.0
+margin_right = 222.0
+margin_bottom = 322.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 149, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="Panel"]
+margin_left = 348.0
+margin_top = 30.0
+margin_right = 646.0
+margin_bottom = 330.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 149, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 4
+
+[node name="GUI" parent="." instance=ExtResource( 6 )]
+backScene = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Panel/TextureButton2" to="." method="_on_TextureButton2_pressed"]
